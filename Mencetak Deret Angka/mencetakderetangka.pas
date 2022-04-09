@@ -16,14 +16,14 @@ begin
     c:=0;
     write('Masukkan deretan angka : '); readln(a);
     for b:=0 to a-1 do
-    begin
-        write(b,', ');
-    end;
+        begin
+            write(b,', ');
+        end;
         write(a,' ');
     for b :=1 to a do
-    begin
-        c:=c+b;
-    end;
+        begin
+            c:=c+b;
+        end;
     writeln('= ',a+1);
     writeln;
     writeln('Jumlahs Suku           = ',a+1);
@@ -33,7 +33,7 @@ begin
     writeln;
     writeln('================================================');
     textcolor(green);
-    writeln('             Program By ARY KURNIA');
+    writeln('              Program By ARY KURNIA');
     textcolor(white);
     writeln('================================================');
     writeln;

@@ -15,6 +15,7 @@ begin
     writeln;
     write('Masukkan Angka Perkalian : ');
     readln(a);
+    writeln;
     for b := 1 to 10 do
         writeln(a,' X ',b,' = ',a*b);
     writeln;
