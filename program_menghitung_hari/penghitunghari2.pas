@@ -3,6 +3,7 @@ uses crt;
 var 
     tmp,l_hari,a_hari,h_l_hari:integer;
     n_hari,z:string;
+    min_mod: array [-7..-1] of integer;
     Hari: array [1..7] of string;
 Label
     lagi;
@@ -69,14 +70,33 @@ begin
         end
     end;
     write('Masukkan Jumlah Lompatan Hari : ');readln(l_hari);
-    h_l_hari:=(l_hari mod 7)+a_hari;
-    if (h_l_hari > 7) then
+    if l_hari>0 then
         begin
-            h_l_hari:=h_l_hari-7;
+            h_l_hari:=(l_hari mod 7)+a_hari;
+            if (h_l_hari > 7) then
+                begin
+                    h_l_hari:=h_l_hari-7;
+                end;
+            writeln;
+            writeln('Jika dihari ',hari[a_hari],' maka ',l_hari,' hari kedepan adalah = ',hari[h_l_hari]);   
+        end
+    else
+        begin
+            h_l_hari:=(l_hari mod 7);
+            min_mod[-1]:=1;min_mod[-2]:=2;min_mod[-3]:=3;min_mod[-4]:=4;min_mod[-5]:=5;min_mod[-6]:=6;min_mod[-7]:=7;
+            h_l_hari:=min_mod[h_l_hari];
+            h_l_hari:=(a_hari-h_l_hari);
+            if (h_l_hari <= 0) then
+                begin
+                    h_l_hari:=min_mod[h_l_hari];
+                    h_l_hari:=7-h_l_hari;
+                    if h_l_hari=0 then
+                    h_l_hari:=7;
+                end;
+            writeln;
+            writeln('Jika dihari ',hari[a_hari],' maka ',l_hari,' hari yang lalu adalah = ',hari[h_l_hari]);   
         end;
-    writeln;
-    writeln('Jika dihari ',hari[a_hari],' maka ',l_hari,' hari kedepan adalah = ',hari[h_l_hari]);
-    
+
     // WM AKu
     writeln;
     writeln('=========================================');
@@ -88,5 +108,4 @@ begin
     write('Ingin Mencoba Lagi...? y/n : ');
     readln(z);
         if (z='y') or (z='Y') then goto lagi;
-    readln;
 end.
